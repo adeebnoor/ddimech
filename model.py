@@ -92,7 +92,7 @@ def create_model(X_train, y_train, X_valid, y_valid):
     model.add(Activation({{choice(['relu', 'sigmoid'])}}))
     model.add(Dense({{choice([256, 512, 1024])}}))
     model.add(Activation('relu'))
-    model.add(Dense(1, activation='sigmoid'))
+    model.add(Dense(11, activation='softmax'))
         
     #reduce_lr = callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2,
     #    patience=5, min_lr=0.001)
