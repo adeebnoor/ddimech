@@ -1,0 +1,8 @@
+ranking_top_pct,severe_pairs_captured_pct,enrichment_x,note
+1,24,23.6,
+5,44,8.9,
+10,50,5.0,
+25,64,2.6,
+50,81,1.6,
+,,,"72 severe Micromedex/DrugBank pairs; 37 in gold, 35 not; all mapped to UMLS CUI via D3 dictionary"
+,,,35 held-out severe pairs: 60% in top 25% (generalization)
