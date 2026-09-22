@@ -1,0 +1,11 @@
+metric,value,note
+cov,89.1,
+drug_blind_ROC,0.763,
+pair_blind_ROC,0.7615,
+PR_AUC,0.0503,
+prevalence,0.0192,
+Brier_raw,0.205,
+Brier_cal,0.0184,
+ECE_raw,0.3756,
+ECE_cal,0.0,
+rows,808406,
