@@ -1,0 +1,4 @@
+ratio,ROC_AUC,PR_AUC,Brier,matrix
+1:1,0.7642,0.7179,0.1966,"11-feature membership (1,009,980 pairs)"
+1:5,0.7642,0.3415,0.202,"11-feature membership (1,009,980 pairs)"
+1:10,0.7622,0.2076,0.204,"11-feature membership (1,009,980 pairs)"
