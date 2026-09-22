@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """
-eval_harness.py — Tier-1 evaluation harness for the D3 probabilistic relevance
-layer (DDI relevance paper), built to satisfy the discrimination /
-calibration / uncertainty / PU-robustness bar of a Q1 pharmacovigilance venue.
+eval_harness.py — Reproducibility and evaluation harness for the D3 interpretable DDI triage layer.
 
-WHAT THIS FIXES (referee issues M1, M3, M4):
-  M1  Circular evaluation  -> grouped (drug-wise) cross-validation so no drug
+EVALUATION FEATURES:
+  - Drug-disjoint evaluation -> grouped (drug-wise) cross-validation so no drug
                               appears in both train and test folds.
-  M3  Missing metrics      -> ROC-AUC, PR-AUC, Brier, ECE, reliability curve,
+  - Evaluation metrics      -> ROC-AUC, PR-AUC, Brier, ECE, reliability curve,
                               all with bootstrap 95% CIs.
-  M4  PU negatives untested-> negative-ratio sensitivity sweep (1:1/1:5/1:10)
+  - PU robustness           -> negative-ratio sensitivity sweep (1:1/1:5/1:10)
                               + Elkan-Noto PU correction as a robustness check.
 
 WHAT YOU MUST SUPPLY (the licensed part that cannot be rebuilt in a sandbox):
@@ -120,7 +118,7 @@ def sample_negatives(pos_pairs, all_drugs, n_neg, forbidden, seed=0):
 
 
 # ----------------------------------------------------------------------------
-# Grouped cross-validation (fixes M1)
+# Drug-disjoint cross-validation
 # ----------------------------------------------------------------------------
 def grouped_cv_scores(X, y, groups, n_splits=5, seed=0, pair_drugs=None,
                       mode="pair_blind"):
@@ -198,7 +196,7 @@ def apparent_scores(X, y):
 
 
 # ----------------------------------------------------------------------------
-# Elkan-Noto PU correction (fixes M4)
+# Elkan-Noto PU correction
 # ----------------------------------------------------------------------------
 def elkan_noto_c(clf, X_val_pos):
     """Estimate label frequency c = P(s=1|y=1) as mean classifier score on a
@@ -212,7 +210,7 @@ def pu_adjusted_proba(clf, X, c):
 
 
 # ----------------------------------------------------------------------------
-# PU sensitivity sweep (fixes M4)
+# PU sensitivity sweep
 # ----------------------------------------------------------------------------
 def pu_sensitivity(build_Xy, pos_pairs, all_drugs, forbidden,
                    ratios=(1, 5, 10), seed=0):
@@ -293,7 +291,7 @@ def plot_eval(y_true, oof, y_app, out="eval_harness_output.png"):
 
 
 # ----------------------------------------------------------------------------
-# REAL data loader — fill this in
+# Licensed-data adapter hook
 # ----------------------------------------------------------------------------
 def load_real_data():
     """
@@ -391,5 +389,5 @@ if __name__ == "__main__":
     ap.add_argument("--real", action="store_true")
     a = ap.parse_args()
     if a.real:
-        raise SystemExit("Implement load_real_data() with your feature matrix, then call the pipeline.")
+        raise SystemExit("Real-data execution requires the licensed feature matrix and an authorized local adapter; see load_real_data().")
     synthetic_smoke_test()
