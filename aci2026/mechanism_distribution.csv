@@ -1,0 +1,12 @@
+Raw label,Paper category (9-class),Count (label instances),"% of labeled pairs (n=12,493)"
+Synergistic,Additive/synergistic effect,8994,72.0
+MetabolismInhibition,CYP (metabolism) inhibition,3785,30.3
+ProteinBinding,Protein-binding displacement,676,5.4
+MetabolismInduction,CYP (metabolism) induction,525,4.2
+Additive,Additive/synergistic effect,406,3.2
+TransporterInhibition,Transporter inhibition,259,2.1
+Competition,Competitive antagonism,80,0.6
+MultiPathways,Multi-pathway,46,0.4
+Pharmacogenetic,Pharmacogenetic modulation,42,0.3
+TransporterInduction,Transporter induction,23,0.2
+--,"(pairs carry >1 label; instances sum to 14836 > 12,493)",,
