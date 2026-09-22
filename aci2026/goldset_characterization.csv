@@ -1,0 +1,13 @@
+Metric,Value
+Total unique DDI pairs,21897
+Unique drugs (nodes),1599
+Mechanism-labeled pairs,12493 (57.1%)
+Unlabeled pairs,9404 (42.9%)
+Multi-mechanism pairs,2152
+Max drug degree,264
+Median drug degree,10
+Mean drug degree,27.4
+90th pct degree,88
+99th pct degree,166
+Singleton drugs (degree=1),253 (15.8%)
+Pairs touching top-1% hub drugs,2871 (13.1%)
